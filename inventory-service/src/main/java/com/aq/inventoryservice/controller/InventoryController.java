@@ -15,22 +15,10 @@ public class InventoryController {
 
     private final InventoryService inventoryService;
 
-    @GetMapping("/{skuCode}")
-    @ResponseStatus(HttpStatus.OK)
-    public boolean isInStock(@PathVariable String skuCode) {
-        return inventoryService.isInStock(skuCode);
-    }
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCodes) {
-        return inventoryService.isInStock(skuCodes);
+    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode) {
+        return inventoryService.isInStock(skuCode);
     }
-
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public String addedToInventory(@RequestBody InventoryRequest inventoryRequest){
-//        return "Added to inventory";
-//    }
 
 }
