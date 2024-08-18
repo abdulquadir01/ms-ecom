@@ -37,7 +37,7 @@ class ProductServiceApplicationTests {
     static MongoDBContainer mongodbContainer = new MongoDBContainer("mongo:4.4.2");
 
     @DynamicPropertySource
-    static public void getDynamicProperties(DynamicPropertyRegistry registry) {
+    private static void getDynamicProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.data.mongodb.uri", mongodbContainer::getReplicaSetUrl);
     }
 
